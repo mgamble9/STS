@@ -48,8 +48,6 @@ public class BankAccount {
 	}
 
 	public void withdrawMoney(double money, String acc_type) {
-		tot_cash += money;	
-		System.out.println("Total cash: $" + tot_cash);
 		if (acc_type == "checking") {
 			if (this.check_bal < money) {
 				System.out.println("Insufficient funds in checking.");
