@@ -8,8 +8,8 @@ public class BankAccount {
 	private double check_bal;
 	private double save_bal;
 	
-	public static int tot_acc = 0;
-	public static double tot_cash = 0.0;
+	private static int tot_acc = 0;
+	private static double tot_cash = 0.0;
 	
 	public BankAccount(double check_bal, double save_bal) {
 		super();
@@ -38,15 +38,11 @@ public class BankAccount {
 		tot_cash += money;	
 		System.out.println("Total cash: $" + tot_cash);
 		if (acc_type == "checking") {
-			double check_bal = this.getCheck_bal();
-			check_bal += money;
-			this.setCheck_bal(check_bal);
+			this.check_bal += money;
 			System.out.println("Check balance is now: $" + check_bal);
 		}
 		if (acc_type == "savings") {
-			double save_bal = this.getSave_bal();
-			save_bal += money;
-			this.setSave_bal(save_bal);
+			this.save_bal += money;
 			System.out.println("Savings balance is now: $" + save_bal);
 		}
 	}
@@ -55,26 +51,22 @@ public class BankAccount {
 		tot_cash += money;	
 		System.out.println("Total cash: $" + tot_cash);
 		if (acc_type == "checking") {
-			double check_bal = this.getCheck_bal();
-			if (check_bal < money) {
+			if (this.check_bal < money) {
 				System.out.println("Insufficient funds in checking.");
 			}
 			else {
-				check_bal -= money;
-				this.setCheck_bal(check_bal);
+				this.check_bal -= money;
 				System.out.println("Check balance is now: $" + check_bal);
 				tot_cash -= money;	
 				System.out.println("Total cash: $" + tot_cash);
 			}
 		}
 		if (acc_type == "savings") {
-			double save_bal = this.getSave_bal();
-			if (save_bal < money) {
+			if (this.save_bal < money) {
 				System.out.println("Insufficient funds in savings.");
 			}
 			else {
-				save_bal -= money;
-				this.setSave_bal(save_bal);
+				this.save_bal -= money;
 				System.out.println("Check balance is now: $" + save_bal);
 				tot_cash -= money;	
 				System.out.println("Total cash: $" + tot_cash);

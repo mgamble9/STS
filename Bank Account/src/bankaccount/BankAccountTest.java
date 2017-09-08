@@ -16,7 +16,7 @@ public class BankAccountTest {
 		b2.withdrawMoney(20.0, "savings");
 		b2.depositMoney(100.0, "savings");
 		b2.withdrawMoney(20.0, "savings");
-
+//		System.out.println(BankAccount.tot_cash);
 
 	}
 
